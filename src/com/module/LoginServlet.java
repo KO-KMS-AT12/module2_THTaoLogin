@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "LoginServlet")
+@WebServlet(name = "LoginServlet", urlPatterns = "/login")
 public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("username");
@@ -17,9 +17,9 @@ public class LoginServlet extends HttpServlet {
         PrintWriter writer = response.getWriter();
         writer.println("<html>");
 
-        if("admin".equals(username) && "1234".equals(password)) {
-            writer.println("<h1>Welcome "+username+" to website</h1>");
-        } else{
+        if ("admin".equals(username) && "1234".equals(password)) {
+            writer.println("<h1>Welcome " + username + " to website</h1>");
+        } else {
             writer.println("<h1>Login Error</h1>");
         }
 
